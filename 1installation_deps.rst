@@ -4,14 +4,39 @@
 Dependencies
 ============
 
+Manual installation
+-------------------
+
+Requirements,
+
+.. code-block:: text
+
+    Differential analysis of counts       		: DESeq2 (tested on 1.6.3 R version 3.2.2 )
+    Visualizations on the 3D structures         : UCSF-Chimera (tested on 1.10.1)
+
+DESeq2 installation (from within R)
+
+.. code-block:: text
+	source("https://bioconductor.org/biocLite.R")
+	biocLite("DESeq2")
+
+UCSF-Chimera can be downloaded from `here`_.
+	
+.. _here: https://www.cgl.ucsf.edu/chimera/cgi-bin/secure/chimera-get.py?file=linux_x86_64/chimera-1.10.1-linux_x86_64.bin
+
+Additionally, to use `UCSF-Chimera` through python environment, graphics drivers also need to be configured by installing "mesa-utils" (apt-get install mesa-utils).
+
+Auto-installed dependencies
+---------------------------
+
 Functions of external dependencies and the requirement,
 
 .. code-block:: text
 
-    Feature extraction from PDB structure       : requires DSSP (2.0.4)
-    Quality control .fastq files                : requires Trimmomatic (0.33)
-    Alignining .fastq files                     : requires Bowtie2 (2.2.1)
-    Convert sam to sorted bam                   : requires samtools (0.1.18)
+    Feature extraction from PDB structure       : DSSP (2.0.4)
+    Quality control .fastq files                : Trimmomatic (0.33)
+    Alignining .fastq files                     : Bowtie2 (2.2.1)
+    Convert sam to sorted bam                   : samtools (0.1.18)
 
 Dependencies would be auto configured by `dms2dfe.configure` module while envoking `dms2dfe.pipeline`. 
 In exceptional cases they can configured by following command,

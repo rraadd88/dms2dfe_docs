@@ -17,11 +17,8 @@ Especially we recommend installing `pysam` prior installing `dms2dfe`.
 
     conda install -c bioconda pysam==0.8.4
 
-`dms2dfe` produces .pdb files with B-factor score equaling to Fitness values of corresponding residues.
-For making visualizations on PDB structures though `dms2dfe` pipeline, `UCSF-Chimera`_ (tested on 1.10.2) is needed to be installed.
-To use `UCSF-Chimera` through python environment, graphics drivers also need to be configured by installing "mesa-utils".
-
-.. _UCSF-Chimera: https://www.cgl.ucsf.edu/chimera/cgi-bin/secure/chimera-get.py?file=linux_x86_64/chimera-1.10.2-linux_x86_64.bin
+Except for DESeq2 and UCSF-Chimera (optional), all other dependencies are auto-installed. 
+Please refer to :ref:`dependencies` for more information.
 
 Installation of `dms2dfe`
 -------------------------
@@ -38,7 +35,6 @@ Troubleshoot
 ------------
 
 Please refer to :ref:`Troubleshoot` page.
-For information about dependencies (which are auto-installed), please refer to :ref:`dependencies`.
 
 Citations
 ---------
