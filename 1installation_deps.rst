@@ -4,19 +4,18 @@
 Dependencies
 ============
 
-Manual installation
--------------------
-
-Requirements,
+Manually installed dependencies
+-------------------------------
 
 .. code-block:: text
 
-    Differential analysis of counts       		: DESeq2 (tested on 1.6.3 R version 3.2.2 )
+    Differential analysis of counts             : DESeq2 (tested on 1.6.3 R version 3.2.2 )
     Visualizations on the 3D structures         : UCSF-Chimera (tested on 1.10.1)
 
 DESeq2 installation (from within R)
 
 .. code-block:: text
+
 	source("https://bioconductor.org/biocLite.R")
 	biocLite("DESeq2")
 
@@ -61,6 +60,23 @@ Also these paths can be manually, permenently appended to default configuration 
     
     from dms2dfe import configure
     configure.main("defaults")
+
+
+Auto-installed python packages
+------------------------------
+
+.. code-block:: text
+
+    'biopython >= 1.68',
+    'pandas >= 0.18.0',
+    'scipy >= 0.17.0',
+    'scikit-bio==0.4.1',
+    'scikit_learn == 0.17.1',
+    'matplotlib >= 1.5.1',
+    'forestci==0.1',
+    'seaborn == 0.7.0',
+    'pysam == 0.8.4',
+    'pychimera==0.1.4',
 
 Troubleshoot
 ------------

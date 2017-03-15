@@ -52,6 +52,23 @@ Please have a look at as described in :ref:`example` section or templates locate
 Envoking analysis pipeline
 --------------------------
 
+From bash command line, create a project directory
+
+.. code-block:: text
+
+    dms2dfe path/to/project_directory
+
+Insert input parameters in the configuration files (.csv) located in `project_directory/cfg`   
+
+Run the analysis,
+
+.. code-block:: text
+
+    dms2dfe path/to/project_directory
+
+Alternative
+-----------
+
 Once a configuration files are created, the analysis pipeline can be envoked from python environment by following command,  
 
 .. automodule:: dms2dfe.pipeline

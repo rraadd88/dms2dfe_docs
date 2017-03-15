@@ -35,12 +35,3 @@ Troubleshoot
 ------------
 
 Please refer to :ref:`Troubleshoot` page.
-
-Citations
----------
-
-.. [1] McKinney, W. & Team, P. D. Pandas - Powerful Python Data Analysis Toolkit. Pandas - Powerful Python Data Anal. Toolkit 1625 (2015).
-
-.. [2] Heger, A. Pysam. github.com (2009). at <https://github.com/pysam-developers/pysam>
-
-.. [3] Pedregosa, F. et al. Scikit-learn: Machine Learning in Python. … Mach. Learn. … 12, 2825–2830 (2012).

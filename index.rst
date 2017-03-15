@@ -21,20 +21,28 @@ Basic usage
 
 :ref:`Installation`
 
+Download the latest release from https://github.com/kc-lab/dms2dfe/releases .
+
 .. code-block:: text
 
-    git clone https://github.com/kc-lab/dms2dfe.git
     cd dms2dfe
     pip install .
 
 :ref:`Usage`
 
-From bash command line (preferred way because of use of multiple cores),
+From bash command line, create a project directory
 
 .. code-block:: text
 
-    python path/to/dms2dfe/pipeline.py path/to/project_directory
+    dms2dfe path/to/project_directory
 
+Insert input parameters in the configuration files (.csv) located in `project_directory/cfg`   
+
+Run the analysis,
+
+.. code-block:: text
+
+    dms2dfe path/to/project_directory
 
 Publication
 -----------
@@ -76,6 +84,7 @@ Pages
     5api
     1installation_deps
     7troubleshoot
+    6test_applications
     8future
 
 Indices and tables

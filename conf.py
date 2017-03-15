@@ -133,10 +133,10 @@ html_theme_options = {
                       'bootstrap_version': "3",
                       'navbar_links': [("Installation", "1installation"),\
                                       ("Usage", "2usage"),\
-                                      ("Programs", "3programs"),\
+                                      ("Example", "6test"),\
                                       ("I/O", "4io"),\
-#                                       ("API", "5api"),\
-                                      ("Example", "6test")\
+                                      ("Programs", "3programs"),\
+                                      ("Dependencies", "1installation_deps"),\
                                       ],
                      }
 # Add any paths that contain custom themes here, relative to this directory.

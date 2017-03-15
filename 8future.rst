@@ -4,11 +4,6 @@
 Future releases
 ===============
 
-0.2
----
-
-Deep learning (TensorFlow) for deciphering complex patterns.
+2.0
 
 Fetch data from SRA.
-
-Additional normalization options.
