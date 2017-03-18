@@ -23,11 +23,10 @@ Please refer to :ref:`dependencies` for more information.
 Installation of `dms2dfe`
 -------------------------
 
-`dms2dfe` can be installed by following commands.  
+Download the latest release from https://github.com/kc-lab/dms2dfe/releases .
 
 .. code-block:: text
 
-    git clone https://github.com/kc-lab/dms2dfe.git
     cd dms2dfe
     pip install .
 
@@ -35,3 +34,8 @@ Troubleshoot
 ------------
 
 Please refer to :ref:`Troubleshoot` page.
+
+Questions
+---------
+
+Please mention them here: https://github.com/rraadd88/dms2dfe/issues .

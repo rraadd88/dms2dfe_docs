@@ -4,21 +4,20 @@
 Usage
 =======================
 
-Creating project directory (`prj_dh`)
--------------------------------------
+Envoking analysis pipeline
+--------------------------
 
-`dms2dfe.configure` is used for building a new project directory in which configuration files are created in directory `project_directory/cfg`. 
+From bash command line, create a project directory
 
-.. automodule:: dms2dfe.configure
-   :members:
-   :undoc-members:
-   :show-inheritance:
+.. code-block:: text
+
+    dms2dfe path/to/project_directory   
+
 
 Creating input configurations
 -----------------------------
 
-Other csv files located in `project_directory/cfg/` detailing paths to sequqnce data, sample names etc. need to be filled as described in details in :ref:`io`. 
-Below is a short guide of the same.
+Insert input parameters in the configuration files (.csv) located in `project_directory/cfg`, (detailed in :ref:`io` and :ref:`example`). 
     
 .. code-block:: text
 
@@ -47,27 +46,27 @@ Below is a short guide of the same.
     |   |   |-- column  barcode_R2      : sequence of reverse (R2) barcode,
     |   |   `-- column  fastq_fn        : file names of output files.
 
-Please have a look at as described in :ref:`example` section or templates located in `dms2dfe/test_dataset/../cfg` for more details.
-
-Envoking analysis pipeline
---------------------------
-
-From bash command line, create a project directory
+Run the analysis
+----------------
 
 .. code-block:: text
 
     dms2dfe path/to/project_directory
 
-Insert input parameters in the configuration files (.csv) located in `project_directory/cfg`   
+Outputs
+-------
 
-Run the analysis,
+Outputs are created in project_directory in directories such as data_lbl , data_fit , data_comparison etc. formats of which are described in :ref:`io`.
 
-.. code-block:: text
+(Optional) Alternative approaches 
+---------------------------------
 
-    dms2dfe path/to/project_directory
+`dms2dfe.configure` is used for building a new project directory in which configuration files are created in directory `project_directory/cfg`. 
 
-Alternative
------------
+.. automodule:: dms2dfe.configure
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 Once a configuration files are created, the analysis pipeline can be envoked from python environment by following command,  
 
@@ -76,7 +75,3 @@ Once a configuration files are created, the analysis pipeline can be envoked fro
    :undoc-members:
    :show-inheritance:
 
-Outputs
--------
-
-Outputs are created in project_directory in directories such as data_lbl , data_fit , data_comparison etc. formats of which are described in :ref:`io`.
