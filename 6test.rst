@@ -19,6 +19,7 @@ Downloading datasets
 ====================
 
 Exaple datasets can be downloaded from the latest release from https://github.com/rraadd88/ms_datasets/releases .
+In the folder `ms_dataset`, directory `outputs` contains pre-analysed outputs for validation of run while directory `analysis` can be used to test/analyze different datasets as follows. 
 
 Run dms2dfe
 ===========

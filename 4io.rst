@@ -228,9 +228,11 @@ Columns:
     |       |-- column  ref                      : Wild-type residue/nucleotide
     |       |-- column  mut                      : Mutated residue/nucleotide
     |       |-- column  mutids                   : ID of mutant <ref><index><mut>    
-    |       |-- columns NiA,NiAcut,NiAcutlog    : raw, thresholded(cut) and log of depth for all(A) mutants
-    |       |-- columns NiS,NiScut,NiScutlog    : raw, thresholded(cut) and log of depth for synonymous(S) mutants
-    |       `-- columns NiN,NiNcut,NiNcutlog    : raw, thresholded(cut) and log of depth for non-synonymous(N) mutants
+    |       |-- columns NiA,NiAcut,NiAcutlog    : raw, thresholded(cut) and log of counts for all(A) mutants
+    |       |-- columns NiS,NiScut,NiScutlog    : raw, thresholded(cut) and log of counts for synonymous(S) mutants
+    |       |-- columns NiN,NiNcut,NiNcutlog    : raw, thresholded(cut) and log of counts for non-synonymous(N) mutants
+    |       `-- columns NiA_norm,NiA_tran       : normalised and transformed frequencies respectively
+
 
 data_fit
 ~~~~~~~~
@@ -248,13 +250,17 @@ Format:
     project_directory 
     |-- data_fit                            : fitness of mutants
     |   `-- aas/cds
-    |       |-- column  ref                  : Wild-type residue/nucleotide
-    |       |-- column  mut                  : Mutated residue/nucleotide
-    |       |-- column  mutids               : ID of mutant <ref><index><mut>    
-    |       |-- columns NiAunsel,NiAsel     : log of depth for all(A) mutants in unselected(unsel) and selected(sel) pool 
-    |       |-- columns NiSunsel,NiSsel     : log of depth for synonymous(S) mutants in unselected(unsel) and selected(sel) pool
-    |       |-- columns FCA,FiA             : Fold change(FC) and fitness(Fi) of all(A) mutants
+    |       |-- column  ref                 : Wild-type residue/nucleotide
+    |       |-- column  mut                 : Mutated residue/nucleotide
+    |       |-- column  mutids              : ID of mutant <ref><index><mut>   
+    |       |-- column  NiA_tran.ref avg    : Average frequencies of mutants from replicates of reference (input/unselected/background) pool     
+    |       |-- column  NiA_tran.ref std    : standard deviation frequencies of mutants from replicates of reference (input/unselected/background) pool     
+    |       |-- column  NiA_tran.ref avg    : Average frequencies of mutants from replicates of selected (post-selection) pool     
+    |       |-- column  NiA_tran.ref std    : standard deviation frequencies of mutants from replicates of selected (post-selection) pool     
+    |       |-- columns FCA,FCA_norm,FiA    : Preferential enrichments (Fold changes, FC), normalised preferential enrichments and fitness(Fi) of all(A) mutants respectively
     |       |-- columns FCS,FiS             : Fold change(FC) and fitness(Fi) of synonymous(S) mutants
+    |       |-- pval, stat, padj            : p-value, statistics of the test and adjusted p-value respectively.
+    |       |-- 
     |       `-- column  class_fit           : class of fitness
     |           |-- value = beneficial      : if fitness(Fi) > 0  
     |           |-- value = neutral         : if fitness(Fi) = 0

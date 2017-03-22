@@ -1,0 +1,5 @@
+*
+!.gitignore
+!*.rst
+!*.py
+!_static/io/*
