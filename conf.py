@@ -19,7 +19,7 @@ import sphinx_bootstrap_theme
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-sys.path.insert(0, "%s/../dms2dfe" % os.path.abspath('.'))
+sys.path.insert(0, "%s/../" % os.path.abspath('.'))
 
 # -- General configuration ------------------------------------------------
 
@@ -66,7 +66,7 @@ author = u'Rohan Dandage'
 # built documents.
 #
 # The short X.Y version.
-version = '1.0.0'
+version = '1.0.6'
 # The full version, including alpha/beta/rc tags.
 release = '1.0.0'
 
@@ -136,7 +136,8 @@ html_theme_options = {
                                       ("Example", "6test"),\
                                       ("I/O", "4io"),\
                                       ("Programs", "3programs"),\
-                                      ("Dependencies", "1installation_deps"),\
+                                      # ("Dependencies", "1installation_deps"),\
+                                      ("API", "5api"),\
                                       ],
                      }
 # Add any paths that contain custom themes here, relative to this directory.
