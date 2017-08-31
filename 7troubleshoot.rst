@@ -4,6 +4,14 @@
 Troubleshoot
 ============
 
+DESeq2 installation (from within R)
+-----------------------------------
+
+.. code-block:: text
+
+    source("https://bioconductor.org/biocLite.R")
+    biocLite("DESeq2")
+
 python
 ------
 

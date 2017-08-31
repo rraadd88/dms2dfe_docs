@@ -4,29 +4,24 @@
    contain the root `toctree` directive.
 .. _dms2dfe:
 
-=======================
-**dms2dfe**
-=======================
-
-.. image:: _static/index.png
-
 Overview
 --------
 
 dms2dfe (**D**\ eep **M**\ utational **S**\ canning (DMS) data to **D**\ istribution of **F**\ itness **E**\ ffects (DFE)) is designed for analyzing Deep Mutational Scaning [1]_ data in terms of Distribution of Fitness Effects.
 `dms2dfe` makes use of efficient libraries such as `pandas` [2]_ to handle data tables `pysam` [3]_ to handle sequence alignment files and `scikit-learn` [4]_ to generate regression and classification models.
 
+.. image:: _static/overview.png
+   :height: 500px
+   :align: center
+
 Basic usage
 -----------
 
 :ref:`Installation`
 
-Download the latest release from https://github.com/kc-lab/dms2dfe/releases .
-
 .. code-block:: text
 
-    cd dms2dfe
-    pip install .
+    pip install dms2dfe
 
 :ref:`Usage`
 

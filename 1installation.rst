@@ -4,57 +4,49 @@
 Installation
 ==========================================
 
-Requirements
-------------
+Before install
+--------------
 
-Required python packages would be auto installed while installing `dms2dfe`. `Anaconda Python Distribution`_ is recommended for installing dependent python packages.
-
-.. _Anaconda Python Distribution: https://repo.continuum.io/archive/Anaconda2-4.0.0-Linux-x86_64.sh
-
-Especially we recommend installing `gcc` and `pysam` prior installing `dms2dfe`.
+`dms2dfe` requires python 2.7 environment and a linux system (tested on debian).
+`Anaconda Python Distribution`_ is recommended for installing required python packages. 
+In order to avoid common issues with installation, a conda environment can be created using this file_.
 
 .. code-block:: text
 
-    conda install -c anaconda gcc
-    conda install -c bioconda pysam==0.8.4
+    conda env create -f /path/to/environment.yml
 
-Except for DESeq2 and UCSF-Chimera (optional), all other dependencies are auto-installed. 
-Please refer to :ref:`dependencies` for more information.
+Activate the python environment by following command,
+
+.. code-block:: text
+
+    source activate dms2dfe
+
+
+.. _Anaconda Python Distribution: https://repo.continuum.io/archive/Anaconda2-4.0.0-Linux-x86_64.sh
+
+.. _file: https://raw.githubusercontent.com/rraadd88/dms2dfe/master/environment.yml
 
 Installation of `dms2dfe`
 -------------------------
 
-Download the latest release from https://github.com/kc-lab/dms2dfe/releases .
-
 .. code-block:: text
 
-    cd dms2dfe
-    pip install .
+    pip install dms2dfe
 
-Troubleshoot
-------------
-
-Please refer to :ref:`Troubleshoot` page.
+Source releases are hosted at https://github.com/kc-lab/dms2dfe/releases.
+Optional dependency UCSF-Chimera can be manually installed as described in deps_ section below.
 
 Questions
 ---------
 
 Please mention them here: https://github.com/kc-lab/dms2dfe/issues .
 
-Manually installed dependencies
--------------------------------
+.. _deps: (Optional) Manually installed dependencies 
+----------------------------------------------------
 
 .. code-block:: text
 
-    Differential analysis of counts             : DESeq2 (tested on 1.6.3 R version 3.2.2 )
-    Visualizations on the 3D structures         : UCSF-Chimera (tested on 1.10.1)
-
-DESeq2 installation (from within R)
-
-.. code-block:: text
-
-    source("https://bioconductor.org/biocLite.R")
-    biocLite("DESeq2")
+    Visualizations on the 3D structures (step=5)    : UCSF-Chimera (tested on 1.10.1)
 
 UCSF-Chimera can be downloaded from `here`_.
     
@@ -62,10 +54,27 @@ UCSF-Chimera can be downloaded from `here`_.
 
 Additionally, to use `UCSF-Chimera` through python environment, graphics drivers also need to be configured by installing "mesa-utils" (apt-get install mesa-utils).
 
-Auto-installed dependencies
----------------------------
+(Optional) Manually adding paths to dependencies
+------------------------------------------------
 
-Functions of external dependencies and the requirement,
+Source files of the tools would be located in `current_directory/dms2dfe_dependencies` folder, paths of which to the source files of all the tools would be appended to the `"project_directory"/cfg/info`.
+
+In case dependencies are already installed on the system, custom paths can be appended to the configuration by following command,
+
+.. code-block:: text
+    
+    from dms2dfe import configure
+    configure.main("inputs")
+
+Also these paths can be permenently set to default by following command,
+
+.. code-block:: text
+    
+    from dms2dfe import configure
+    configure.main("defaults")
+
+Following dependencies are auto-installed during initialisation of dms2dfe.
+Functions of external dependencies,
 
 .. code-block:: text
 
@@ -81,22 +90,6 @@ In exceptional cases they can configured by following command,
     
     from dms2dfe import configure
     configure.main("path/to/project_directory","deps")
-
-Source files of the tools would be downloaded in `current_directory/dms2dfe_dependencies` folder, paths of which to the source files of all the tools would be appended to the `"project_directory"/cfg/info`.
-
-These paths can be manually appended to default configuration of a `project` by following command,
-
-.. code-block:: text
-    
-    from dms2dfe import configure
-    configure.main("inputs")
-
-Also these paths can be manually, permenently appended to default configuration of `dms2dfe` by following command,
-
-.. code-block:: text
-    
-    from dms2dfe import configure
-    configure.main("defaults")
 
 Troubleshoot
 ------------
