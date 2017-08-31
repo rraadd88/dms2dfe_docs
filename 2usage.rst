@@ -11,7 +11,7 @@ From bash command line, create a project directory
 
 .. code-block:: text
 
-    dms2dfe path/to/project_directory   
+    dms2dfe project_directory   
 
 
 Creating input configurations
@@ -51,7 +51,7 @@ Run the analysis
 
 .. code-block:: text
 
-    dms2dfe path/to/project_directory
+    dms2dfe project_directory
 
 Outputs
 -------

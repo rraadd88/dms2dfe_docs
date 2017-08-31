@@ -19,9 +19,13 @@ Basic usage
 
 :ref:`Installation`
 
+To install the package, simply execute following command:
+
 .. code-block:: text
 
     pip install dms2dfe
+
+Note: python 2.7 and linux (tested on debian) are required.
 
 :ref:`Usage`
 
@@ -29,7 +33,7 @@ From bash command line, create a project directory
 
 .. code-block:: text
 
-    dms2dfe path/to/project_directory
+    dms2dfe project_directory
 
 Insert input parameters in the configuration files (.csv) located in `project_directory/cfg`   
 
@@ -37,7 +41,7 @@ Run the analysis,
 
 .. code-block:: text
 
-    dms2dfe path/to/project_directory
+    dms2dfe project_directory
 
 Publication
 -----------

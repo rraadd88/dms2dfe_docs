@@ -4,16 +4,17 @@
 Installation
 ==========================================
 
-Before install
---------------
+Before install (Recommended)
+----------------------------
 
 `dms2dfe` requires python 2.7 environment and a linux system (tested on debian).
 `Anaconda Python Distribution`_ is recommended for installing required python packages. 
-In order to avoid common issues with installation, a conda environment can be created using this file_.
+In order to avoid common issues with installation, a conda environment can be created.
 
 .. code-block:: text
-
-    conda env create -f /path/to/environment.yml
+    
+    wget https://raw.githubusercontent.com/rraadd88/dms2dfe/master/environment.yml
+    conda env create -f environment.yml
 
 Activate the python environment by following command,
 
@@ -21,13 +22,12 @@ Activate the python environment by following command,
 
     source activate dms2dfe
 
-
 .. _Anaconda Python Distribution: https://repo.continuum.io/archive/Anaconda2-4.0.0-Linux-x86_64.sh
-
-.. _file: https://raw.githubusercontent.com/rraadd88/dms2dfe/master/environment.yml
 
 Installation of `dms2dfe`
 -------------------------
+
+To install the package written in python 2.7, simply execute following command:
 
 .. code-block:: text
 
@@ -57,24 +57,7 @@ Additionally, to use `UCSF-Chimera` through python environment, graphics drivers
 (Optional) Manually adding paths to dependencies
 ------------------------------------------------
 
-Source files of the tools would be located in `current_directory/dms2dfe_dependencies` folder, paths of which to the source files of all the tools would be appended to the `"project_directory"/cfg/info`.
-
-In case dependencies are already installed on the system, custom paths can be appended to the configuration by following command,
-
-.. code-block:: text
-    
-    from dms2dfe import configure
-    configure.main("inputs")
-
-Also these paths can be permenently set to default by following command,
-
-.. code-block:: text
-    
-    from dms2dfe import configure
-    configure.main("defaults")
-
-Following dependencies are auto-installed during initialisation of dms2dfe.
-Functions of external dependencies,
+Following are the external dependencies that are auto-installed during initialisation of dms2dfe.
 
 .. code-block:: text
 
@@ -83,13 +66,10 @@ Functions of external dependencies,
     Alignining .fastq files                     : Bowtie2 (2.2.1)
     Convert sam to sorted bam                   : samtools (0.1.18)
 
-Dependencies would be auto configured by `dms2dfe.configure` module while envoking `dms2dfe.pipeline`. 
-In exceptional cases they can configured by following command,
+With default configuration, these dependencies would be locally configured and their paths would be appended to `"project_directory"/cfg/info` file.
 
-.. code-block:: text
-    
-    from dms2dfe import configure
-    configure.main("path/to/project_directory","deps")
+In case dependencies are already installed on the system, custom paths to the sources can be appended manually in the `"project_directory"/cfg/info` file.
+
 
 Troubleshoot
 ------------
