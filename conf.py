@@ -135,9 +135,9 @@ html_theme_options = {
                                       ("Usage", "2usage"),\
                                       ("Example", "6test"),\
                                       ("I/O", "4io"),\
-                                      ("Programs", "3programs"),\
+                                      # ("Programs", "3programs"),\
                                       # ("Dependencies", "1installation_deps"),\
-                                      ("API", "5api"),\
+                                      # ("API", "5api"),\
                                       ],
                      }
 # Add any paths that contain custom themes here, relative to this directory.

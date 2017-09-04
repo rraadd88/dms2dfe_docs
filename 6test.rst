@@ -25,8 +25,8 @@ In the downloaded folder `ms_dataset`, directory `analysis` is to be used to ana
 .. code-block:: text
 
     git clone https://github.com/rraadd88/ms_datasets.git
-	cd ms_dataset/analysis
-	dms2dfe <project directory>
+    cd ms_dataset/analysis
+    dms2dfe <project directory>
 
 Here, '<project directory>' can be `Firnberg_et_al_2014`, `Melnikov_et_al_2014` or `Olson_et_al_2014`
 
@@ -41,6 +41,7 @@ Outputs
 
 The outputs of the run can be vaidated with those kept in 'ms_datasets/outputs'.
 
+================
 Overall testing
 ================
 
@@ -67,11 +68,6 @@ Following set of commands would enable overall testing of the package.
     # download input sequencing data (~300Mb)
     python get_seq_data.py Melnikov_et_al_2014
     dms2dfe Melnikov_et_al_2014
-
-    # testing optional (time taking) step 3
-    dms2dfe Olson_et_al_2014 --step 3
-    dms2dfe Firnberg_et_al_2014 --step 3
-    dms2dfe Melnikov_et_al_2014 --step 3
 
 Citations
 ---------

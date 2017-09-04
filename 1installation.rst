@@ -41,18 +41,21 @@ Questions
 
 Please mention them here: https://github.com/kc-lab/dms2dfe/issues .
 
-.. _deps: (Optional) Manually installed dependencies 
-----------------------------------------------------
+.. _deps: 
+
+(Optional) Manually installed dependencies 
+------------------------------------------
 
 .. code-block:: text
 
-    Visualizations on the 3D structures (step=5)    : UCSF-Chimera (tested on 1.10.1)
+    Visualizations on the PDB structures (step=5)    : UCSF-Chimera (tested on 1.10.1)
 
-UCSF-Chimera can be downloaded from `here`_.
-    
+Through visuazation modules of `dms2dfe`, position wise fitness scores would be written in the B-factor (temperature factor) of PDB structures. 
+Users can use UCSF-Chimera to make visualizations automatically (download link `here`_). Please refer to :ref:`Troubleshoot` page for any issues.
+
+This dependency is optional because users can use any PDB viewer of their choice to visualize the .pdb files (located in `project_directory/plots/aas`).
+
 .. _here: https://www.cgl.ucsf.edu/chimera/cgi-bin/secure/chimera-get.py?file=linux_x86_64/chimera-1.10.1-linux_x86_64.bin
-
-Additionally, to use `UCSF-Chimera` through python environment, graphics drivers also need to be configured by installing "mesa-utils" (apt-get install mesa-utils).
 
 (Optional) Manually adding paths to dependencies
 ------------------------------------------------

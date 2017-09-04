@@ -10,13 +10,13 @@ Front-end programs of `dms2dfe`
 .. autosummary:: 
  :toctree: generated
   
-    dms2dfe.configure.main
     dms2dfe.pipeline.main
+    dms2dfe.configure.main
     dms2dfe.ana0_fastq2dplx.main
     dms2dfe.ana0_fastq2sbam.main
-    dms2dfe.ana0_getfeats.main
     dms2dfe.ana1_sam2mutmat.main
     dms2dfe.ana2_mutmat2fit.main
+    dms2dfe.ana0_getfeats.main
     dms2dfe.ana3_fit2comparison.main
     dms2dfe.ana4_modeller.main
     dms2dfe.ana4_plotter.main
@@ -24,8 +24,10 @@ Front-end programs of `dms2dfe`
 Ordered by steps in analysis
 ============================
 
-Extracting features of protein (optional) 
------------------------------------------
+Note: variable `prj_dh` is the name of project_directory.
+
+`--step 0.3`: Extracting features of protein 
+--------------------------------------------
 
 Requires PDB structure of protein.
 
