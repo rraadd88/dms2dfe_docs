@@ -64,11 +64,14 @@ Following are the external dependencies that are auto-installed during initialis
 
 .. code-block:: text
 
-    Feature extraction from PDB structure       : DSSP (2.0.4)
-    Quality control .fastq files                : Trimmomatic (0.33)
-    Alignining .fastq files                     : Bowtie2 (2.2.1)
-    Convert sam to sorted bam                   : samtools (0.1.18)
-
+    Quality control .fastq files           : Trimmomatic (0.33)
+    Alignining .fastq files                : Bowtie2 (2.2.1)
+    Convert sam to sorted bam              : samtools (0.1.18)
+    Feature extraction from PDB structure  : DSSP (2.0.4)
+    Feature extraction from MSA            : Clustalo (1.2.2)
+    Feature extraction: residue depth      : MSMS (2.6.1)
+    Feature extraction: conservation scores: Rate4site (3.0.0)
+    
 With default configuration, these dependencies would be locally configured and their paths would be appended to `"project_directory"/cfg/info` file.
 
 In case dependencies are already installed on the system, custom paths to the sources can be appended manually in the `"project_directory"/cfg/info` file.

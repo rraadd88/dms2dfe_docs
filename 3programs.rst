@@ -14,64 +14,55 @@ Front-end programs of `dms2dfe`
     dms2dfe.configure.main
     dms2dfe.ana0_fastq2dplx.main
     dms2dfe.ana0_fastq2sbam.main
+    dms2dfe.ana0_getfeats.main
     dms2dfe.ana1_sam2mutmat.main
     dms2dfe.ana2_mutmat2fit.main
-    dms2dfe.ana0_getfeats.main
-    dms2dfe.ana3_fit2comparison.main
     dms2dfe.ana4_modeller.main
+    dms2dfe.ana3_fit2comparison.main
     dms2dfe.ana4_plotter.main
     
-Ordered by steps in analysis
-============================
+**Parameters:** **prj_dh** - name of project_directory.
+**Parameters:** **test** - switch to debug mode.
 
-Note: variable `prj_dh` is the name of project_directory.
+**--step 0.1** : Demuliplex `.fastq` files
+=========================================================
 
-`--step 0.3`: Extracting features of protein 
---------------------------------------------
+If barcodes are detected in the configuration (located at `project_directory/cfg/barcodes`), `.fastq` files are demultiplexed accordingly. 
 
-Requires PDB structure of protein.
+**--step 0.2** : Preprocesses and aligns sequencing files
+=========================================================
 
-.. automodule:: dms2dfe.ana0_getfeats
-   :members:
-   :undoc-members:
-   :show-inheritance:
+The steps and required dependendencies:
 
-Preprocessing .fastq files (optional)
--------------------------------------
+.. code-block:: text
 
-This is envoked only when input files are .fastq files.
+    Quality filtering        : Trimmomatic.
+    Alignment                : bowtie2
+    .sam to .bam conversion  : samtools
 
-.. automodule:: dms2dfe.ana0_fastq2dplx
-   :members:
-   :undoc-members:
-   :show-inheritance:
 
-.. automodule:: dms2dfe.ana0_fastq2sbam
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   
-Step 1 : Variant caling
------------------------
+**--step 0.3** : Extracts molecular features
+=========================================================
 
-This requires aligned sorted bam files.
+This optional module extracts following structural features of reference protein.
 
-.. automodule:: dms2dfe.ana1_sam2mutmat
-   :members:
-   :undoc-members:
-   :show-inheritance:
+The out files are created in prj_dh/data_feats
 
-Step 2 : Fitness estimations
-----------------------------
+The steps and required dependendencies are following.
 
-This step requires mutation matrix of codons (.mut_cds format).
+.. code-block:: text
 
-.. automodule:: dms2dfe.ana2_mutmat2fit
-   :members:
-   :undoc-members:
-   :show-inheritance:
+    Secondary structure                      : using DSSP.
+    Solvent Accessible Surface Area          : using DSSP.  
+    Distance of a residue from reference atom: using Bio.PDB
 
-**Estimation of fitness scores**
+**--step 1** : Variant calling
+=========================================================
+
+Alignment files (sorted bam) are used to produce codon level mutation matrix of counts of mutants.
+
+**--step 2** : Estimation of fitness scores
+======================================================
 
 Since DMS studies are primarily based on competition assays, the preferential enrichment of a particular mutant with respect to other can be best described in terms of fitness changes.
 The fitness could be interpreted into the functional importance at molecular level of the RNA and protein which eventually translate into organismal fitness.
@@ -88,7 +79,8 @@ where FC\ :sub:`i` is preferential enrichment (fold change) score, N\ :sub:`i,se
 This fold change value is dependent on the seqencing depths of the two samples. 
 So to eliminate this factor, following two strategies are implemented in `dms2dfe`.
 
-**Normalization of fold change values with respect to frequencies of synonymous mutations**
+Normalization of fold change values with respect to frequencies of synonymous mutations
+----------------------------------------------------------------
 
 With the conventional methods used for generation of mutation libraries such as using degenerate codon NNK or NNS - alongside non-synonymous mutations, a proportion of synonymous mutations are cloned.
 Synonymous mutations can be considered are fairly invariable in terms of their fold change values since they express into the same (wild-type) sequence hence can be used as a normalizing factor.
@@ -104,7 +96,8 @@ A Z-score is calculated from the fold changes employing population mean and stan
 
 where FC\ :sub:`i,normalized` is Z-score normalized preferential enrichment (Fold change) of i\ :sup:`th` mutant. mu\ :sub:`syn` and sigma\ :sub:`syn` are a population mean and standard deviation of Gaussian fitted distribution of fold changes of wild type (synonymous) mutants respectively.
 
-**Normalization of fold change values with respect to frequencies of wild type**
+Normalization of fold change values with respect to frequencies of wild type
+----------------------------------------------------------------
 
 Alternatively, normalization can also be carried out with respect to wild type alleles as described by Melnikov et. al. [@Melnikov2014]. 
 This approach is especially useful in scenarios where synonymous mutants are not generated through the library cloning method used.
@@ -121,7 +114,9 @@ FC\ :sub:`i,wild` fold change of wild type amino acids at that position.
 Normalization with respect to synonymous mutations is sensitive to changes in coverage across the length of reference sequence which is especially the case in shot gun sequencing methods eg. tagmentation based library preparations.
 To account for this, the both methods can be used in tandem with synonymous mutation for better normalization.
 
-**Rescaling preferential enrichments with respect to the synonymous mutants**
+Rescaling preferential enrichments with respect to the synonymous mutants
+
+----------------------------------------------------------------
 
 To reflect the relative fitness with respact to the wild type allele, preferential enrichments are rescaled with respect to preferential enrichments of the wild type allele. 
 
@@ -134,7 +129,8 @@ To reflect the relative fitness with respact to the wild type allele, preferenti
 where F\ :sub:`i` and FC\ :sub:`i` are fitness score, preferential enrichment of of $i^{th}$ mutant.  
 FC\ :sub:`i` is the fold change of wild type sequences at that position.
 
-**Classification of mutants based on fitness values**
+Classification of mutants based on fitness values
+----------------------------------------------------------------
 
 Since the fitness values are scaled based on wild type alleles, the mutants can be classified as deleterious (if F\ :sub:`i` < 0) and beneficial (if F\ :sub:`i` > 0) as follows,
 
@@ -149,10 +145,16 @@ Since the fitness values are scaled based on wild type alleles, the mutants can 
 
 where, M\ :sub:`i` is i\ :sup:`th` kind of survived mutant.
 
-Step 3 : Comparisons
---------------------
+**--step 3** : Identifies important molecular features
+======================================================
 
-**Classification of mutants based on comparison of fitness values (DFEs)**
+Correlative analysis is carried out to identify molecular features that strongly correlate with fitness scores.
+Features extracted in upstream step are utilized here.
+
+Correlation plots are saved in `project_directory/plots/` directory with a suffix `.corr.pdf`.
+
+**--step 4** : Comparisons across conditions
+======================================================
 
 Based on the categoris of fitness of mutants in test and control experimental conditions, mutants are classified in three categories `positive`, `negative` and `robust`.
 
@@ -170,24 +172,16 @@ where M\ :sub:`i,test` and M\ :sub:`i,control` are i\ :sup:`th` kind of survived
 
 This categorization simplifies the data in terms of overall dynamics of DFEs.
 
-.. automodule:: dms2dfe.ana3_fit2comparison
-   :members:
-   :undoc-members:
-   :show-inheritance:
+**--step 5** : Visualizations
+======================================================
 
-Visualizations
--------------- 
+Visualizations generated by visualization step and respective extentions. These plots are saved in the `project_directory/plot/aas`.
 
-.. automodule:: dms2dfe.ana4_plotter
-   :members:
-   :undoc-members:
-   :show-inheritance:
+.. code-block:: text
 
-MOdelling preferential enrichments
----------------------------------- 
-
-.. automodule:: dms2dfe.ana4_modeller
-   :members:
-   :undoc-members:
-   :show-inheritance:
+    *. Coverage/depth of sequencing : `.coverage.pdf` 
+    *. Mutation matrix (heatmap): `.mutmap.pdf`
+    *. Substitution matrix (heatmap): `.submap.pdf`
+    *. Scatter plot between counts of selected and reference mutants : `.multisca.pdf`
+    *. Projections on PDB: `.pdb.png` (`.pdb`)
 
