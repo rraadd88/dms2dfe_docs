@@ -7,7 +7,7 @@
 Overview
 --------
 
-dms2dfe (**D**\ eep **M**\ utational **S**\ canning (DMS) data to **D**\ istribution of **F**\ itness **E**\ ffects (DFE)) is an integrative analysis workflow designed for end-to-end enrichment analysis of Deep Mutational Scaning [1] data. Among many experimental designs Deep Mutational Scaning asssay, this workflow, currently, is only applicable for **pairwise comparisons** of samples.
+dms2dfe (**D**\ eep **M**\ utational **S**\ canning (DMS) data to **D**\ istribution of **F**\ itness **E**\ ffects (DFE)) is an integrative analysis workflow designed for end-to-end enrichment analysis of Deep Mutational Scaning [1]_ data. Among many experimental designs Deep Mutational Scaning asssay, this workflow, currently, is only applicable for **pairwise comparisons** of samples.
 `dms2dfe` makes use of efficient libraries such as `pandas` [2]_ to handle data tables `pysam` [3]_ to handle sequence alignment files and `scikit-learn` [4]_ to generate regression and classification models.
 
 .. image:: _static/overview.png

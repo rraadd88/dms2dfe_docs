@@ -58,11 +58,10 @@ Following set of commands would enable overall testing of the package.
     pip install dms2dfe
 
     # download the datasets
-    wget https://github.com/rraadd88/ms_datasets/archive/v0.0.4.zip
-    unzip v0.0.4.zip
+    git clone https://github.com/rraadd88/ms_datasets.git
 
     # analyze the datasets
-    cd ms_datasets-0.0.4/analysis
+    cd ms_datasets/analysis
     dms2dfe Olson_et_al_2014
     dms2dfe Firnberg_et_al_2014
     # download input sequencing data (~300Mb)
