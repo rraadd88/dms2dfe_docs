@@ -8,7 +8,7 @@ Overview
 --------
 
 dms2dfe (**D**\ eep **M**\ utational **S**\ canning (DMS) data to **D**\ istribution of **F**\ itness **E**\ ffects (DFE)) is an integrative analysis workflow designed for end-to-end enrichment analysis of Deep Mutational Scaning [1]_ data. Among many experimental designs Deep Mutational Scaning asssay, this workflow, currently, is only applicable for **pairwise comparisons** of samples.
-`dms2dfe` makes use of efficient libraries such as `pandas` [2]_ to handle data tables `pysam` [3]_ to handle sequence alignment files and `scikit-learn` [4]_ to generate regression and classification models.
+`dms2dfe` makes use of efficient libraries such as `pandas` [2]_ to handle data tables, `pysam` [3]_ to process sequence alignment files and `biopython` [4]_ to handle PDB structures.
 
 .. image:: _static/overview.png
    :height: 500px
@@ -66,7 +66,7 @@ Citations
 
 .. [3] Heger, A. Pysam. github.com (2009). at <https://github.com/pysam-developers/pysam>
 
-.. [4] Pedregosa, F. et al. Scikit-learn: Machine Learning in Python. … Mach. Learn. … 12, 2825–2830 (2012).
+.. [4] Cock, P. J., Antao, T., Chang, J. T., Chapman, B. A., Cox, C. J., Dalke, A., ... & De Hoon, M. J. (2009). Biopython: freely available Python tools for computational molecular biology and bioinformatics. Bioinformatics, 25(11), 1422-1423.
 
 
 Pages

@@ -21,6 +21,7 @@ Download and analyze datasets
 
 Exaple datasets are hosted at https://github.com/rraadd88/ms_datasets . 
 In the downloaded folder `ms_dataset`, directory `analysis` is to be used to analyze different datasets as follows. 
+Note that to download the repository, one would need `git` installed on the machine. On Debian or Ubuntu Linux, `git` can be installed by this command: `sudo apt-get install git && sudo apt-get update`.
 
 .. code-block:: text
 
@@ -68,8 +69,10 @@ Following set of commands would enable overall testing of the package.
     python get_seq_data.py Melnikov_et_al_2014
     dms2dfe Melnikov_et_al_2014
 
+
+
 Citations
----------
+=========
 
 .. [Firnberg_et_al_2014] Firnberg, E., J.W. Labonte, J.J. Gray, and M. Ostermeier. 2014. A comprehensive, high-resolution map of a Gene’s fitness landscape. Molecular Biology and Evolution. 31: 1581–1592.
 

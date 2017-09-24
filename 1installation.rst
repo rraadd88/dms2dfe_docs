@@ -24,6 +24,8 @@ Activate the python environment by following command,
 
 .. _Anaconda Python Distribution: https://repo.continuum.io/archive/Anaconda2-4.0.0-Linux-x86_64.sh
 
+Various dependencies of `dms2dfe` require `zlib1g-dev` (zlib development) and `gcc` (GNU Compiler Collection) preinstalled on the machine. If they are not already preinstalled (*rare case*), on a Debian or Ubuntu Linux, they can be installed by running this command: `sudo apt-get install zlib1g-dev && sudo apt-get install build-essential && sudo apt-get update`. 
+
 Installation of `dms2dfe`
 -------------------------
 
@@ -51,7 +53,7 @@ Please mention them here: https://github.com/kc-lab/dms2dfe/issues .
     Visualizations on the PDB structures (step=5)    : UCSF-Chimera (tested on 1.10.1)
 
 Through visuazation modules of `dms2dfe`, position wise fitness scores would be written in the B-factor (temperature factor) of PDB structures. 
-Users can use UCSF-Chimera to make visualizations automatically (download link `here`_). Please refer to :ref:`Troubleshoot` page for any issues.
+Users can use UCSF-Chimera [1]_ to make visualizations automatically (download link `here`_). Please refer to :ref:`Troubleshoot` page for any issues.
 
 This dependency is optional because users can use any PDB viewer of their choice to visualize the .pdb files (located in `project_directory/plots/aas`).
 
@@ -60,24 +62,56 @@ This dependency is optional because users can use any PDB viewer of their choice
 (Optional) Manually adding paths to dependencies
 ------------------------------------------------
 
-Following are the external dependencies that are auto-installed during initialisation of dms2dfe.
+Following are the external dependencies that are auto-installed during initialisation of dms2dfe:
 
-.. code-block:: text
+Trimmomatic (0.33) [2]_
+    Quality control .fastq files
 
-    Quality control .fastq files           : Trimmomatic (0.33)
-    Alignining .fastq files                : Bowtie2 (2.2.1)
-    Convert sam to sorted bam              : samtools (0.1.18)
-    Feature extraction from PDB structure  : DSSP (2.0.4)
-    Feature extraction from MSA            : Clustalo (1.2.2)
-    Feature extraction: residue depth      : MSMS (2.6.1)
-    Feature extraction: conservation scores: Rate4site (3.0.0)
-    
-With default configuration, these dependencies would be locally configured and their paths would be appended to `"project_directory"/cfg/info` file.
+Bowtie2 (2.2.1) [3]_
+    Alignining .fastq files
 
-In case dependencies are already installed on the system, custom paths to the sources can be appended manually in the `"project_directory"/cfg/info` file.
+samtools (0.1.18) [4]_
+    Convert sam to sorted bam
+
+DSSP (2.0.4) [5]_
+    Feature extraction from PDB structure
+
+Clustalo (1.2.2) [6]_
+    Feature extraction from MSA
+
+MSMS (2.6.1) [7]_
+    Feature extraction: residue depth
+
+Rate4site (3.0.0) [8]_
+    Feature extraction: conservation scores
+
+
+With default configuration, these dependencies would be locally configured and their paths would be appended to `project_directory/cfg/info` file.
+
+In case dependencies are already installed on your system, (custom) paths to the source files can be added manually in the `project_directory/cfg/info` file.
 
 
 Troubleshoot
 ------------
 
 Please refer to :ref:`Troubleshoot` page.
+
+Citations
+---------
+
+.. [1] Pettersen, E. F., Goddard, T. D., Huang, C. C., Couch, G. S., Greenblatt, D. M., Meng, E. C., & Ferrin, T. E. (2004). UCSF Chimera—a visualization system for exploratory research and analysis. Journal of computational chemistry, 25(13), 1605-1612.
+
+.. [2] Bolger, A. M., Lohse, M., & Usadel, B. (2014). Trimmomatic: a flexible trimmer for Illumina sequence data. Bioinformatics, 30(15), 2114-2120.
+
+.. [3] Langmead, Ben, and Steven L Salzberg. 2012. “Fast gapped-read alignment with Bowtie 2.” Nat Methods 9 (4): 357–59. doi:10.1038/nmeth.1923.
+
+
+.. [4] Li, H., Handsaker, B., Wysoker, A., Fennell, T., Ruan, J., Homer, N., ... & Durbin, R. (2009). The sequence alignment/map format and SAMtools. Bioinformatics, 25(16), 2078-2079.
+
+.. [5] Kabsch, W., & Sander, C. (1983). Dictionary of protein secondary structure: pattern recognition of hydrogen‐bonded and geometrical features. Biopolymers, 22(12), 2577-2637.
+
+.. [6] Sievers, F., & Higgins, D. G. (2014). Clustal Omega, accurate alignment of very large numbers of sequences. Multiple sequence alignment methods, 105-116.
+
+.. [7] Sanner, M. F., Olson, A. J., & Spehner, J. C. (1996). Reduced surface: an efficient way to compute molecular surfaces. Biopolymers, 38(3), 305-320.
+
+.. [8] Pupko, T., Bell, R. E., Mayrose, I., Glaser, F., & Ben-Tal, N. (2002). Rate4Site: an algorithmic tool for the identification of functional regions in proteins by surface mapping of evolutionary determinants within their homologues. Bioinformatics, 18(suppl_1), S71-S77.

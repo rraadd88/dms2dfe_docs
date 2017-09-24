@@ -4,8 +4,36 @@
 Troubleshoot
 ============
 
-DESeq2 installation (from within R)
------------------------------------
+Installing `zlib1g-dev`
+-----------------------
+
+On Debian or Ubuntu Linux,
+
+.. code-block:: text
+
+    sudo apt-get install zlib1g-dev && sudo apt-get update;
+
+Installing `gcc` and other packages needed for installing various tools
+-----------------------------------------------------------------------
+
+On Debian or Ubuntu Linux,
+
+.. code-block:: text
+
+    sudo apt-get install build-essential && sudo apt-get update
+
+
+Installing `git`
+----------------
+
+On Debian or Ubuntu Linux,
+
+.. code-block:: text
+
+    sudo apt-get install git && sudo apt-get update
+
+DESeq2 installation
+-------------------
 
 .. code-block:: text
 
