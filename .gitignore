@@ -2,4 +2,4 @@
 !.gitignore
 !*.rst
 !*.py
-!_static/io/*
+!_static/*
