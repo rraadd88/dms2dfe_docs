@@ -7,6 +7,8 @@ Installation
 Before install (Recommended)
 ----------------------------
 
+In order for the installation of `dms2dfe` and its dependencies to run smoothly, make sure that the debian system has fundamental packages required for installations e.g. `gcc` (GNU Compiler Collection) etc. Following command would install them if they are absent on your system: `sudo apt-get install build-essential zlib1g-dev libncurses5-dev libncursesw5-dev gawk;sudo apt-get update`. 
+
 `dms2dfe` requires python 2.7 environment and a linux system (tested on debian).
 `Anaconda Python Distribution`_ is recommended for installing required python packages. 
 In order to avoid common issues with installation, a conda environment can be created.
@@ -23,8 +25,6 @@ Activate the python environment by following command,
     source activate dms2dfe
 
 .. _Anaconda Python Distribution: https://repo.continuum.io/archive/Anaconda2-4.0.0-Linux-x86_64.sh
-
-Various dependencies of `dms2dfe` require `zlib1g-dev` (zlib development) and `gcc` (GNU Compiler Collection) preinstalled on the machine. If they are not already preinstalled (*rare case*), on a Debian or Ubuntu Linux, they can be installed by running this command: `sudo apt-get install zlib1g-dev && sudo apt-get install build-essential && sudo apt-get update`. 
 
 Installation of `dms2dfe`
 -------------------------
