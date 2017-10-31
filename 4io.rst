@@ -181,8 +181,23 @@ Columns:
 
 For examples of configuration files, please have a look at test datasets located in `dms2dfe/test_dataset/`.
 
-Outputs
--------
+Outputs (plots)
+--------------
+
+1. Coverage (*.cov.pdf) : Shows coverage of reads (left yaxis) and mutations (right yaxis).
+
+2. Mutation map (*.mutmap.pdf) : Shows Preferential enrichments of individual mutants.
+
+3. Substitution map (*.mutmap.pdf) : Shows Preferential enrichments of substitutions (mean of individual mutations).
+
+4. Scatter map (*.multisca.pdf) : Shows correlations between mutations (left), substitution-wise averages (center) and position-wise averages (right).
+
+5. Violin (*.violin.pdf) : Shows comparison of distributions of test and control conditions. p-values are obtained by 2-sided Wilcoxon signed-rank test. 
+
+6. PDB (*.pdb) : B-factor (temperature/flexibility) factor is written with  position-wise averages of preferential enrichments.
+
+Outputs (data)
+--------------
 
 With a successful run of `dms2dfe` following output files are created.
 Below is structure of output files generated.
@@ -290,10 +305,29 @@ Format:
     |       |-- columns Fi_ctrl,Fi_test    : Fitness(Fi) of all(A) mutants in control and test respectively
     |       |-- columns class_fit_ctrl,class_fit_test     : class of fitness in control and test respectively
     |       `-- column class_comparison     : class of comparison
-    |           |-- value = positive        : if class_fit_ctrl ==  deleterious  & class_fit_test == beneficial
-    |           |-- value = negative        : if class_fit_ctrl ==  beneficial   & class_fit_test == deleterious
-    |           `-- value = robust          : if class_fit_ctrl == class_fit_test
+    |       |   |-- value = positive        : if class_fit_ctrl ==  deleterious  & class_fit_test == beneficial
+    |       |   |-- value = negative        : if class_fit_ctrl ==  beneficial   & class_fit_test == deleterious
+    |       |   `-- value = robust          : if class_fit_ctrl == class_fit_test
+    |       |
+            data_fit_metrics
 
+data_fit_metrics
+~~~~~~~~~~~~~~~~
+
+Among columns, following variables are reported.
+
+.. code-block:: text
+
+    fn      : file name
+    mu      : mean of prefenrential enrichments
+    sigma   : standard deviation of prefenrential enrichments   
+    n       : number of mutants reported (survived)
+    ref**   : reference sample replicate **
+    sel**   : selected sample replicate **
+    F       : Cumulative prefenrential enrichment of the sample
+    Delta n : n of selected - n of reference
+    Delta F : F of selected - F of reference
+    
 data_feats
 ~~~~~~~~~~~~~~~
 
