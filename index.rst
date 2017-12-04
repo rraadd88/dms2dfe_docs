@@ -19,11 +19,13 @@ Basic usage
 
 :ref:`Installation`
 
-To install the package, simply execute following command:
+To install the package, first `create a conda environment`_ and execute following command:
 
 .. code-block:: text
 
     pip install dms2dfe
+
+.. _create a conda environment: 1installation.html#before-install-recommended
 
 Note: python 2.7 and linux (tested on debian) are required.
 
@@ -83,7 +85,7 @@ Pages
     5api
     1installation_deps
     7troubleshoot
-    6test_applications
+    6contributors
     8future
 
 Indices and tables

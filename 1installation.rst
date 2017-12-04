@@ -24,7 +24,7 @@ Activate the python environment by following command,
 
     source activate dms2dfe
 
-.. _Anaconda Python Distribution: https://repo.continuum.io/archive/Anaconda2-4.0.0-Linux-x86_64.sh
+.. _Anaconda Python Distribution: https://conda.io/docs/user-guide/install/download.html
 
 Installation of `dms2dfe`
 -------------------------

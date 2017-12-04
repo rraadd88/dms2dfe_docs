@@ -136,6 +136,7 @@ html_theme_options = {
                                       ("Example", "6test"),\
                                       ("I/O", "4io"),\
                                       # ("Programs", "3programs"),\
+                                      # ("Programs", "3programs"),\
                                       # ("Dependencies", "1installation_deps"),\
                                       # ("API", "5api"),\
                                       ],
