@@ -6,22 +6,22 @@ API
 
 Backend modules of :ref:`dms2dfe`.
 
+.. automodule:: dms2dfe.lib.io_nums
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: dms2dfe.lib.io_strs
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 .. automodule:: dms2dfe.lib.convert_seq
    :members:
    :undoc-members:
    :show-inheritance:
 
-.. automodule:: dms2dfe.lib.fit_curve
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 .. automodule:: dms2dfe.lib.get_protein_features
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-.. automodule:: dms2dfe.lib.global_vars
    :members:
    :undoc-members:
    :show-inheritance:
@@ -61,12 +61,3 @@ Backend modules of :ref:`dms2dfe`.
    :undoc-members:
    :show-inheritance:
 
-.. automodule:: dms2dfe.lib.io_nums
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-.. automodule:: dms2dfe.lib.io_strs
-   :members:
-   :undoc-members:
-   :show-inheritance:
