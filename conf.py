@@ -36,7 +36,7 @@ extensions = [
     # 'sphinx.ext.pngmath',
     # 'sphinx.ext.doctest',
     'sphinx.ext.autosummary',
-    'rst2pdf.pdfbuilder'
+#    'rst2pdf.pdfbuilder'
 ]
 
 autodoc_defaults_flags = ['members']
